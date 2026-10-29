@@ -14,6 +14,8 @@
 ```
 .
 ├── AGENTS.md                      # 全局指令：后端导师模式的触发与规范
+├── package.json                   # pi 包清单（供 pi install 发现 skill/prompts）
+├── LICENSE                        # MIT
 ├── backend-labs/                  # 动手实验（每个主题一个子目录）
 │   └── http-basics/               #   M1-L1：看见 HTTP 报文
 │       ├── server.mjs             #   最小 HTTP 服务器，逐行打印请求报文
@@ -55,6 +57,38 @@ node raw-client.mjs
 ## 课程大纲
 
 三阶段，从 HTTP/Web 服务本质，到数据存储（PostgreSQL、Redis），再到消息队列与中间件。完整大纲见 [`curriculum.md`](.pi/skills/backend-learning/references/curriculum.md)，路线与选型轨道见 [`roadmap.md`](.pi/skills/backend-learning/references/roadmap.md)。
+
+## 别人怎么用
+
+### 方式一：clone 后直接上课（零配置，推荐）
+
+```bash
+git clone https://github.com/wst7/backend-learning.git
+cd backend-learning
+pi
+```
+
+pi 会自动发现本仓库的 `.pi/skills/backend-learning`（项目级 skill 目录），并加载 `AGENTS.md` 里的导师模式。进来说「上课」「出题」「复盘」，或用 `/skill:backend-learning` 强制加载，即可按大纲开始学习；实验在 `backend-labs/` 里跑。
+
+### 方式二：装进你自己的 pi（任何项目可用）
+
+```bash
+pi install git:github.com/wst7/backend-learning
+```
+
+通过 `package.json` 的 `pi` 清单，skill 与 `/lesson` `/quiz` `/lab` 等 prompts 会一起装进你的 pi 配置，之后在任何目录都能触发课程。加 `-l` 则只装进当前项目。
+
+### 方式三：不用 pi，纯手动学
+
+- 大纲 [`curriculum.md`](.pi/skills/backend-learning/references/curriculum.md)、路线 [`roadmap.md`](.pi/skills/backend-learning/references/roadmap.md) 直接读
+- 每个 `backend-labs/<topic>/` 自带 README（目的 / 步骤 / 预期输出 / 思考题），`node xxx.mjs` 即可跑，零 npm 依赖
+
+### 前置
+
+| 用途 | 需要 |
+|---|---|
+| 跑实验 | Node.js（只用内置 `http` / `net`，无 npm 依赖） |
+| 上课（方式一 / 二） | pi：`curl -fsSL https://pi.dev/install.sh \| sh`；或 `npm install -g --ignore-scripts @earendil-works/pi-coding-agent`（需 Node ≥ 22.19） |
 
 ## 设计原则
 

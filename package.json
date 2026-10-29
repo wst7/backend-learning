@@ -1,0 +1,10 @@
+{
+  "name": "backend-learning",
+  "version": "1.0.0",
+  "description": "前端转后端学习课程导师：三阶段课程大纲 + 路线图 + 教学 prompts + 可运行实验",
+  "license": "MIT",
+  "pi": {
+    "skills": ["./.pi/skills"],
+    "prompts": ["./.pi/prompts"]
+  }
+}
