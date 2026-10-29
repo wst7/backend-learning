@@ -1,0 +1,10 @@
+# 运行时产物
+*.pid
+*.log
+
+# 依赖与构建
+node_modules/
+
+# 系统
+.DS_Store
+backend-labs
